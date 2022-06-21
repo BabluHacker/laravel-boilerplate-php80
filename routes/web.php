@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'dashboard'])->name("dashboard");
+
+Route::get('/crud', [PageController::class, 'crud'])->name("crud");
+
+$tables = config("tables");
+
+    Route::get("/table/{tableName}", [PageController::class, "table_crud"])->name("table-crud");
