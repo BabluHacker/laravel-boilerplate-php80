@@ -30,6 +30,6 @@ RUN echo "* * * * * /usr/local/bin/php ${APPLICATION_PATH}/artisan schedule:run 
 
 # Install composer dependencies
 USER application
-RUN [ ${COMPOSER_VERSION} = "1" ] && composer1 install --ignore-platform-reqs || composer install --ignore-platform-reqs
+RUN [ ${COMPOSER_VERSION} = "1" ] && composer1 install || composer install
 
 EXPOSE 80 443
