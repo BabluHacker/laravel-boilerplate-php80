@@ -31,5 +31,5 @@ RUN echo "* * * * * /usr/local/bin/php ${APPLICATION_PATH}/artisan schedule:run 
 # Install composer dependencies
 USER application
 RUN [ ${COMPOSER_VERSION} = "1" ] && composer1 install || composer install
-
-EXPOSE 80 443
+CMD php artisan serve --host=0.0.0.0 --port=8181
+EXPOSE 8181
