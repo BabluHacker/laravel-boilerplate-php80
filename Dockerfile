@@ -32,4 +32,4 @@ RUN echo "* * * * * /usr/local/bin/php ${APPLICATION_PATH}/artisan schedule:run 
 USER application
 RUN [ ${COMPOSER_VERSION} = "1" ] && composer1 install || composer install
 CMD php artisan serve --host=0.0.0.0 --port=8181
-EXPOSE 8181
+EXPOSE 8181 8000
